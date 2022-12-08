@@ -26,6 +26,8 @@ import os
 app=Flask(__name__)
 
 app.secret_key= b'\xd0\xf7!ug\xb8/\x89:\x83\t&\x8c\xfa\xa6^'
+app.host = "0.0.0.0"
+app.port = os.getenv("PORT") 
 
 #FUNCION DE HOMEPAGE
 @app.route('/HOME')
