@@ -18,6 +18,8 @@ import funciones.asistencia.funciones_asistencia as fun_asist
 import funciones.login.funciones_login as fun_log
 import funciones.aplicacion.funciones_aplicacion as fun_app
 import funciones.infoPerfilAdmin.funciones_PerfilAdmin as fun_admin
+import os
+
 
 
 
@@ -189,6 +191,6 @@ def Pagina_no_encontrada(error):
 #HACEMOS EL CONSTRUCTOR.
 if __name__=='__main__':
     app.register_error_handler(404, Pagina_no_encontrada)
-    app.run(host="0.0.0.0",debug=True)
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
     #CONFIGURAMOS EL HOST PARA QUE PUEDA ACCEDER DE CUALQUIER IP
     #Y TAMBIEN EL MODO DEBUG PARA VER LOS CAMBIOS EN TIEMPO REAL.
