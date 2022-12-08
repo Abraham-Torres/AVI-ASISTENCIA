@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'ADMINISTRADOR/modulos/header.html' %}
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+    <!-- /.navbar -->
+    {% include 'ADMINISTRADOR/modulos/menu.html' %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="content mt-4">
+        <div class="card shadow">
+          <div class="card-header">
+            <h1 class="card-title">Operaciones puesto</h1>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-striped" id="example1">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Edad</th>
+                  <th>Puesto operativo</th>
+                  <th class="text-center"><i class="fas fa-solid fa-screwdriver fa-wrench nav-icon"></i></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for dato in puesto %}
+                <tr> 
+                  <td>{{ dato.nombre }}</td>
+                  <td>{{ dato.correo }}</td>
+                  <td>{{ dato.edad }}</td>
+                  <td>{{ dato.tipo_puesto }}</td>
+                  <td class="text-center"> <a href="{{url_for('Informacion',key=dato.identificador)}}" class="btn btn-success"> <i class="fas fa-solid fa-pen nav-icon">
+                      </i> </a> <a href="{{url_for('Eliminar_Puesto',key=dato.identificador)}}" class="btn btn-danger"> 
+                        <i class="fas fa-solid fa-screwdriver fa-trash nav-icon"></i> </a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+
+
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- /.content-wrapper -->
+    {% include 'ADMINISTRADOR/modulos/footer.html' %}
+    {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+  </div>
+  <!-- ./wrapper -->
+  <!-- jQuery -->
+  {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+</body>
+
+</html>

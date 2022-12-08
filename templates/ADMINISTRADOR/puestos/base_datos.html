@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'ADMINISTRADOR/modulos/header.html' %}
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+  {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+  <!-- /.navbar -->
+  {% include 'ADMINISTRADOR/modulos/menu.html' %}
+  <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="content mt-4">
+        <div class="card shadow">
+        <div class="card-header">
+            <h1 class="card-title">Base de datos puesto</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped" id="example1">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Telefono</th>
+                    <th>Puesto operativo</th>
+                    <th>Contraseña</th>
+                </tr>
+                </thead>
+                <tfoot>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Telefono</th>
+                    <th>Puesto operativo</th>
+                    <th>Contraseña</th>
+                </tfoot>
+
+                <tbody>
+                    {% for dato in puesto %}
+                    <tr>
+                        <td>{{ dato.identificador }}</td>
+                        <td>{{ dato.nombre }}</td>
+                        <td>{{ dato.correo }}</td>
+                        <td>{{ dato.edad }}</td>
+                        <td>{{ dato.telefono }}</td>
+                        <td>{{ dato.tipo_puesto }}</td>
+                        <td>{{ dato.password }}</td>
+                    </tr>
+                        {% endfor %}
+                </tbody>
+                
+
+            </table>
+        </div>
+    </div>
+      </section>
+    </div>
+  <!-- /.content-wrapper -->
+  {% include 'ADMINISTRADOR/modulos/footer.html' %}
+  {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+  </div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+{% include 'ADMINISTRADOR/modulos/scripts.html' %}
+</body>
+
+</html>
+
+
+

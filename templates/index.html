@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'ADMINISTRADOR/modulos/header.html' %}
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+    <!-- /.navbar -->
+    {% include 'ADMINISTRADOR/modulos/menu.html' %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="container mt-4">
+        <div class="row">
+          <div class="col ">
+            <!-- small box -->
+            <div class="small-box bg-success shadow">
+              <div class="inner">
+                <h3><sup style="font-size: 10px"></sup></h3>
+                <p><strong>Puestos activos</strong></p>
+                <h3>20</h3>
+              </div>
+              <div class="icon">
+                <i class="fa fa-solid fa-user-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <!-- small box -->
+            <div class="small-box bg-danger shadow">
+              <div class="inner">
+                <h3><sup style="font-size: 20px"></sup></h3>
+                <p><strong>Puestos Inactivos</strong></p>
+                <h3>1</h3>
+              </div>
+              <div class="icon">
+                <i class="fa fa-solid fa-user-minus"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- small box -->
+          <div class="small-box bg-warning shadow">
+            <div class="inner">
+              <h3><sup style="font-size: 20px"></sup></h3>
+              <p><strong>Total de puestos</strong></p>
+              <h3>1</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-solid fa-users"></i>
+            </div>
+          </div>
+        <!-- small box -->
+        <div class="small-box bg-info shadow">
+          <div class="inner">
+            <h3><sup style="font-size: 20px"></sup></h3>
+            <h3 id="fecha"></h3>
+            <h4 id="hora"></h4>
+            <div class="icon">
+              <i class="fa fa-clock"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Script de fecha y hora-->
+    <script>
+      var udateTime = function () {
+        let currentDate = new Date(),
+          hours = currentDate.getHours(),
+          minutes = currentDate.getMinutes(),
+          seconds = currentDate.getSeconds(),
+          weekDay = currentDate.getDay(),
+          day = currentDate.getDate(),
+          month = currentDate.getMonth(),
+          year = currentDate.getFullYear();
+        console.log(day);
+        const dias = [
+          'Domingo',
+          'Lunes',
+          'Martes',
+          'Miércoles',
+          'Jueves',
+          'Viernes',
+          'Sabado'
+        ];
+
+
+
+        const meses = [
+          'Enero',
+          'Febrero',
+          'Marzo',
+          'Abril',
+          'Mayo',
+          'Junio',
+          'Julio',
+          'Agosto',
+          'Septiembre',
+          'Octubre',
+          'Noviembre',
+          'Diciembre'
+        ];
+
+        if (minutes < 10) {
+          minutes = "0" + minutes
+        }
+
+        if (seconds < 10) {
+          seconds = "0" + seconds
+        }
+
+
+        var fecha = `${dias[weekDay]} ${day} de ${meses[month]}`;
+        var hora = `${hours} : ${minutes} : ${seconds} HRS`;
+
+
+
+        document.getElementById('fecha').textContent = fecha;
+        document.getElementById('hora').textContent = hora;
+      };
+
+      udateTime();
+
+      setInterval(udateTime, 1000);
+    </script>
+    <!-- /.content-wrapper -->
+    {% include 'ADMINISTRADOR/modulos/footer.html' %}
+    {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+  </div>
+  <!-- ./wrapper -->
+  <!-- jQuery -->
+  {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+</body>
+
+</html>

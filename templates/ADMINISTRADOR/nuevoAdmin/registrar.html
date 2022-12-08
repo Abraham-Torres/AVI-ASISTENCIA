@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'ADMINISTRADOR/modulos/header.html' %}
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+    <!-- /.navbar -->
+    {% include 'ADMINISTRADOR/modulos/menu.html' %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="container mt-4">
+        <form class="card shadow" action='/' method="post">
+          <div class="card-header">
+            <h1 class="card-title">Registrar administrador</h1>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="" class="label">Nombre completo</label>
+                  <input type="text" class="form-control rounded-pill" name="nombre" placeholder="Nombre completo">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="" class="label">Correo electronico</label>
+                  <input type="email" class="form-control rounded-pill" name="correo" placeholder="Correo electronico">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="" class="label">Contraseña</label>
+                  <input type="password" class="form-control rounded-pill" name="password" value="Aviva">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary">Guardar <i
+                      class="fa fa-solid fa-user-plus"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+
+      </section>
+    </div>
+    <!-- /.content-wrapper -->
+    {% include 'ADMINISTRADOR/modulos/footer.html' %}
+    {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+  </div>
+  <!-- ./wrapper -->
+  <!-- jQuery -->
+  {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+</body>
+
+</html>

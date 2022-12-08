@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'APLICACION/modulos/header.html' %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    {% include 'APLICACION/modulos/nav-bar.html' %}
+    <!-- /.navbar -->
+    {% include 'APLICACION/modulos/menu.html' %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <form class="container mt-4" action='/ASISTENCIA-EMPLEADO' method="post">
+        <!-- Widget: user widget style 1 -->
+        <div class="card card-widget widget-user shadow">
+          <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div class="widget-user-header text-white"
+            style="background: no-repeat center/100% url('{{ url_for('static', filename = 'dist/img/banner.png')}}');">
+            <h3 class="widget-user-username text-right">{{puestos.nombre}}</h3>
+            <h5 class="widget-user-desc text-right">{{puestos.tipo_puesto}}</h5>
+          </div>
+          <div class="widget-user-image">
+            <img class="img-circle" src="{{url_for('static',filename='dist/img/avatar.png')}}" alt="User profile image">
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header">Edad</h5>
+                  <span class="description-text">{{puestos.edad}}</span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header">Telefono</h5>
+                  <span class="description-text">{{puestos.telefono}}</span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header">35</h5>
+                  <span class="description-text">PRODUCTS</span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+        </div>
+        <!-- /.widget-user -->
+
+        <!--second card-->
+        <div class="card card-widget widget-user shadow">
+          <div class="card-header">
+            <h5 class="card-title">Estado</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md">
+                <div class="description-block">
+
+                  <!--select multiple-->
+                  <div class="form-group text-center">
+                    <select name="EstadoOperativo" class="form-control rounded-pill">
+                      {% for dato in Estado %}
+                      <option value="{{dato.EstadoOperativo}}" class="form-control">{{dato.EstadoOperativo}}
+                        {% endfor %}
+                      </option>
+                    </select>
+                  </div>
+
+                  <!--/select multiple-->
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+
+            </div>
+            <!-- /.row -->
+          </div>
+        </div>
+
+        <!--third card-->
+        <div class="card card-widget widget-user shadow">
+          <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div class="widget-user-header text-white" style="background-color:rgba(55, 168, 74, 0.773);">
+            <h3 id="fecha"></h3>
+            <h4 id="hora"></h4>
+            <br>
+          </div>
+
+          <div class="widget-user-image mb-4">
+            <br>
+          
+            {% if puestos.activo == False %}
+            <button type="summit" class="btn btn-app bg-success rounded-pill">
+              <i class="fas fa-clock"></i> Registrar
+            </button>
+            {% endif %}
+
+            {%if puestos.activo == True %}
+            <a class="btn btn-app bg-danger" href="/ASISTENCIA-FINALIZADA">
+              <i class="fas fa-clock"></i> Finalizar 
+            </a>
+            {% endif %}
+          
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+
+    </div>
+    <br>
+    </form>
+  </div>
+
+  <script>
+    var udateTime = function () {
+      let currentDate = new Date(),
+        hours = currentDate.getHours(),
+        minutes = currentDate.getMinutes(),
+        seconds = currentDate.getSeconds(),
+        weekDay = currentDate.getDay(),
+        day = currentDate.getDate(),
+        month = currentDate.getMonth(),
+        year = currentDate.getFullYear();
+      console.log(day);
+      const dias = [
+        'Domingo',
+        'Lunes',
+        'Martes',
+        'Miércoles',
+        'Jueves',
+        'Viernes',
+        'Sabado'
+      ];
+
+
+
+      const meses = [
+        'Enero',
+        'Febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre'
+      ];
+
+      if (minutes < 10) {
+        minutes = "0" + minutes
+      }
+
+      if (seconds < 10) {
+        seconds = "0" + seconds
+      }
+
+
+      var fecha = `${dias[weekDay]} ${day} de ${meses[month]}`;
+      var hora = `${hours} : ${minutes} : ${seconds}`;
+
+
+
+      document.getElementById('fecha').textContent = fecha;
+      document.getElementById('hora').textContent = hora;
+    };
+
+    udateTime();
+
+    setInterval(udateTime, 1000);
+  </script>
+
+
+  <!-- /.content-wrapper -->
+
+  {% include 'APLICACION/modulos/side-bar-control.html' %}
+  </div>
+  <!-- ./wrapper -->
+  <!-- jQuery -->
+  {% include 'APLICACION/modulos/scripts.html' %}
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+  {% include 'ADMINISTRADOR/modulos/header.html' %}
+</head>
+
+<body class="hold-transition login-page"
+  style="background:  center/100% url('{{ url_for('static', filename = 'dist/img/aviva-verde-min-1.jpg')}}');"></body>
+
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-header text-center">
+      <p class="h1"><b>Administrador</b><br>AVIVA</p>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Ingresa tus datos para entrar</p>
+      <form action="/AUTENTICACION-ADMINISTRADOR" method="post">
+        <div class="input-group mb-3">
+          <input type="email" name="correo" class="form-control rounded-pill" placeholder="Correo" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control rounded-pill" placeholder="Password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <button type="submit" class="btn btn-primary btn-block rounded-pill">Iniciar Sesion</button>
+        </div>
+        {% with mensajes_flash = get_flashed_messages() %}
+        {% if mensajes_flash %}
+        {% for mensaje in mensajes_flash %}
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <div>
+            {{mensaje}}
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </form>
+
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+  <!-- /.card -->
+</div>
+
+
+</body>
+
+</html>

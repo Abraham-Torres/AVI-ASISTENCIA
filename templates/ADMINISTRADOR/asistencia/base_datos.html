@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+<meta http-equiv="refresh" content="120">
+{% include 'ADMINISTRADOR/modulos/header.html' %}
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+        <!-- /.navbar -->
+        {% include 'ADMINISTRADOR/modulos/menu.html' %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content mt-4">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h1 class="card-title">Asistencia de operadores</h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped" id="example1">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Inicio</th>
+                                    <th>Operativo</th>
+                                    <th>Puesto</th>
+                                    <th>Fin</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for dato in asistencia %}
+                                <tr>
+                                    <td>{{ dato.Nombre}}</td>
+                                    <td>{{ dato.Fecha}}</td>
+                                    <td>{{ dato.Inicio}}</td>
+                                    <td>{{ dato.Estado}}</td>
+                                    <td>{{ dato.Puesto}}</td>
+                                    <td>{{ dato.fin}}</td>
+                                    
+                                {% endfor %}
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+        {% include 'ADMINISTRADOR/modulos/footer.html' %}
+        {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+</body>
+
+</html>

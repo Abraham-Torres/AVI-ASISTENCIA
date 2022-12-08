@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'ADMINISTRADOR/modulos/header.html' %}
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+        <!-- /.navbar -->
+        {% include 'ADMINISTRADOR/modulos/menu.html' %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Profile Image -->
+            <section class="container mt-4">
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle"
+                                src="{{ url_for('static', filename = 'dist/img/A-LOGO.png')}}"
+                                alt="User profile picture">
+                        </div>
+                        <h3 class="profile-username text-center">{{administrador.correo}}</h3>
+                        <p class="text-muted text-center">Administrador</p>
+                        <div class="card card-info card-outline">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <small>
+                                                Nombre Completo:
+                                                <button type="button" data-toggle="modal" data-target="#nombre"
+                                                    class="btn btn-xs btn-link btnOpenEdit"><i
+                                                        class="fa-solid fas fa-pen"></i>
+                                                    Editar</button>
+                                            </small>
+                                            <p id="vtitle">name<span class="text-muted"></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <small>
+                                                Contraseña:
+                                                <button type="button" data-toggle="modal" data-target="#contraseña"
+                                                    class="btn btn-xs btn-link btnOpenEdit"><i
+                                                        class="fa-solid fas fa-pen"></i>
+                                                    Editar</button>
+                                            </small>
+                                            <p>
+                                            <input type="password" value="1234567890" class="form-control-sm rounded-pill" disabled>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </section>
+        </div>
+
+        <!--Modales-->
+        <div class="modal fade" id="contraseña">
+            <div class="modal-dialog modal-md">
+                <form class="modal-content" action="{{url_for('ActualizarContraseña',key=administrador.correo,campo='password')}}" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar Contraseña</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" value="" class="form-control rounded-pill" name="dato" id="dato">
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default rounded-pill"
+                            data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Guardar</button>
+                    </div>
+                </form>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+
+        <div class="modal fade" id="nombre">
+            <div class="modal-dialog modal-md">
+                <form class="modal-content" action="{{url_for('ActualizarAdministrador',key=administrador.identificador,campo='nombre')}}" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar Nombre</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" value="" class="form-control rounded-pill" name="dato" id="dato">
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default rounded-pill"
+                            data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Guardar</button>
+                    </div>
+                </form>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+
+        <!-- /.content-wrapper -->
+        {% include 'ADMINISTRADOR/modulos/footer.html' %}
+        {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+</body>
+
+</html>

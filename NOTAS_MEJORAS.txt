@@ -1,0 +1,56 @@
+COSAS POR HACER EN SISTEMA WEB:
+
+1. Implementar sesiones (YA ESTA)
+2. Implementar la seguridad en las rutas (que no puedan acceder sino estan logeados) (YA ESTA IMPLEMENTADO)
+3. Implementar que puedan subir foto de perfil
+4. Implementar en el homepage en los cuadros de puestos activos/inactivos que muestren realmente cuantos hay.
+5. Implementar un modal de advertencia al momento de borrar algun dato
+
+COSAS POR HACER EN LA APP:
+1. Hacer el index (YA ESTA)
+2. Cambiar el sidebar (tiene el del admin)
+3. Implentar sesiones (YA ESTA)
+4. Implementar la seguridad en las rutas (que no puedan acceder sino estan logeados) (YA ESTA)
+5. Si ya registraron la asistencia desactivar/cambiar el boton (YA ESTA, SOLO FALTA PONERLE LA CONDICION DE QUE SI YA REGISTRO NO DEJARLO
+HACER DE NUEVO)
+6. Implementar que puedan subir foto de perfil
+
+
+NOTAS PARA MI:
+* Revisa porque la seguridad de las rutas, ya que solo te retorna a iniciar sesion empleado y no permite entrar a admin (YA ESTA CORREGIDO)
+* Implementa la comprobacion de rutas en todo, ya que algunas veces cuando redirecciona manda al home del admin 
+
+MEJORAS PARA SISTEMA WEB;
+Puesto>Administrar>Operaciones>Editar infomacion>Puesto: implementar un dropdown donde el usuario pueda seleccionar el Puesto
+dependiendo de los puestos operativos existentes en la bd. (YA ESTA IMPLEMENTADO)
+
+Usuario/operador> implementar un apartado donde el usuario pueda cambiar su contraseña en caso de que se le haya olvidado (esta puede en el sidebar)
+(YA ESTA EN EL SIDEBAR, FALTA DARLE FUNCIONALIDAD)
+
+Homepage> Implementar un reloj con la fecha y hora. (esto puede ser un sustito al calendario que esta) (YA ESTA IMPLEMENTADO)
+
+Admin>Perfil: Hacer una vista para que el admin pueda ver su informacion (correo y password) y pueda actualizar su password (YA ESTA IMPLEMENTADO)
+
+RUTA SECRETA DE ADMIN PARA CREAR CUENTAS DE ADMIN: Hacer una vista para hacer nuevas cuentas de admin, la ruta debera ser secreta
+
+STATUS DEL SISTEMA:
+27/10/2022 - 12:42: El modulo de puestos operativos ya es funcional en su totalidad
+27/10/2022 - 1:33: El modulo de estados operativos ya es funcional en su totalidad
+27/10/2022 - 3:38: TODOS LOS MODULOS SON OPERATIVOS (falta hacer lado de la app)
+27/10/2022 - 5:51: Las sesiones ya fueron implementadas, falta implementar seguridad en las rutas
+28/10/2022 - 3:32: La seguridad para las rutas no estan implementadas de forma correcta
+31/10/2022 - 9:32: La seguridad en las rutas ya esta implementadas de forma correcta, ademas de la destruccion de sesiones.
+31/10/2022 - 12:02: El login para la app ya estan implementadas,ademas de las sesiones. (testea por cualquier cosa)
+31/10/2022 - 1:35: Se ha cambiado el menu para la app (ya no tiene el de admin), ademas de cambiar el banner
+31/10/2022 - 4:33: Se ha implementado el live tale de fecha y hora.
+31/10/2022 - 5:50: Se intento hacer lo de asistencia (hay fallos de logica)
+01/11/2022 - 12:11: El sistema ya registra la asistencia (inicio) falta hacer cuando termine la jornada (fin)
+03/11/2022 - 12:28: EL sistema ya registra inicio de jornada y fin de jornada (falta agregar una condicion, de que ya si 
+existe asistencia de un operador, no permitir que la registre de nuevo)
+03/11/2022 - 5:13: La idea de poner un dropdown en editar informacion puesto, ya esta implementado de forma correcta
+04/11/2022 - 4:09: Fue dia de hueva, trate de hacer el contador para los activos e inactivos
+07/11/2022 - 11:48: Se hicieron correciones de aspecto visual, ademas de que lo del dropdown ya es correcto en su totalidad
+07/11/2022 - 12:51: La vista para ver la info del admin ya esta, falta implementar el que cambie su password
+07/11/2022 - 3:39: Se ha implementado la actualizacio de contraseñas para admin, pero no las converti a Hash (no puedo entrar al sistema xd)
+07/11/2022 - 4:16: La actualizacion de contraseñas para admin ya funciona en su totalidad e incluso las hace con hash
+07/11/2022 - 5:48: Dejo pendiente la vista de admin para agregar nuevos admins, ademas de actualizar sus datos (Antes de temporada alta)
