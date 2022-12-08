@@ -191,6 +191,6 @@ def Pagina_no_encontrada(error):
 #HACEMOS EL CONSTRUCTOR.
 if __name__=='__main__':
     app.register_error_handler(404, Pagina_no_encontrada)
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
+    app.run(host=app.host, port=app.port, debug=True)
     #CONFIGURAMOS EL HOST PARA QUE PUEDA ACCEDER DE CUALQUIER IP
     #Y TAMBIEN EL MODO DEBUG PARA VER LOS CAMBIOS EN TIEMPO REAL.
