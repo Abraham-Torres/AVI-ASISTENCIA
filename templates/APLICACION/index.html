@@ -20,7 +20,7 @@
           <div class="widget-user-header text-white"
             style="background: no-repeat center/100% url('{{ url_for('static', filename = 'dist/img/banner.png')}}');">
             <h3 class="widget-user-username text-right">{{puestos.nombre}}</h3>
-            <h5 class="widget-user-desc text-right">{{puestos.tipo_puesto}}</h5>
+            <h5 class="widget-user-desc text-right">Operador</h5>
           </div>
           <div class="widget-user-image">
             <img class="img-circle" src="{{url_for('static',filename='dist/img/conductor.png')}}" alt="User profile image">
@@ -45,8 +45,8 @@
               <!-- /.col -->
               <div class="col-sm-4">
                 <div class="description-block">
-                  <h5 class="description-header"></h5>
-                  <span class="description-text"></span>
+                  <h5 class="description-header">Auxiliar</h5>
+                  <span class="description-text">{{puestos.auxiliar}}</span>
                 </div>
                 <!-- /.description-block -->
               </div>
@@ -60,15 +60,20 @@
         <!--second card-->
         <div class="card card-widget widget-user shadow">
           <div class="card-header">
-            <h5 class="card-title">Estado</h5>
+            <h5 class="card-title">Inicio de ruta</h5>
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col-md">
                 <div class="description-block">
-
+                  <div class="form-group">
+                  <label>Placas de la unidad</label>
+                  <input type="text" class="form-control rounded-pill">
+                  </div>
                   <!--select multiple-->
+                  
                   <div class="form-group text-center">
+                    <label>Estado operativo</label>
                     <select name="EstadoOperativo" class="form-control rounded-pill">
                       {% for dato in Estado %}
                       <option value="{{dato.EstadoOperativo}}" class="form-control">{{dato.EstadoOperativo}}

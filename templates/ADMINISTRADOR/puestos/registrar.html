@@ -46,10 +46,10 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="" class="label">Operador</label>
+                  <label for="" class="label">Auxiliares</label>
                   <select name="tipo_puesto" id="" class="form-control rounded-pill">
-                    {% for dato in op %}
-                    <option value="{{dato.PuestoOperativo}}" class="form-control">{{dato.PuestoOperativo}}
+                    {% for dato in auxiliar %}
+                    <option value="{{dato.nombre}}" class="form-control">{{dato.nombre}}
                     </option>{% endfor %}
                   </select>
                 </div>

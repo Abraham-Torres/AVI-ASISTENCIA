@@ -54,3 +54,4 @@ existe asistencia de un operador, no permitir que la registre de nuevo)
 07/11/2022 - 3:39: Se ha implementado la actualizacio de contraseñas para admin, pero no las converti a Hash (no puedo entrar al sistema xd)
 07/11/2022 - 4:16: La actualizacion de contraseñas para admin ya funciona en su totalidad e incluso las hace con hash
 07/11/2022 - 5:48: Dejo pendiente la vista de admin para agregar nuevos admins, ademas de actualizar sus datos (Antes de temporada alta)
+18/11/2022 - 5:52: Se le han varios cambios al sistema (estan en To do:) queda pediente resolver el error de registrar asitencia

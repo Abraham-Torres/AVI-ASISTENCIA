@@ -22,7 +22,7 @@ def AsistenciaApp():
          datosPuestoDB.update_one({'identificador':id},{'$set':{'activo':True}})
          nombre = DatosPuesto['nombre']
          fecha = time.strftime('%d-%m-%y')
-         puesto = DatosPuesto['tipo_puesto']
+         puesto = DatosPuesto['Puesto']
          identificador = str(fecha)+str(session['usuario-empleado'])
          operativo = request.form['EstadoOperativo']
          inicio = time.strftime('%X')

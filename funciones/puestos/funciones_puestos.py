@@ -16,9 +16,9 @@ def PuestoDb():
         return redirect('/INICIAR-SESION-EMPLEADO')
 def Formulario():
         titulo="Nuevo operador"
-        OperativosDB=DB['operativos']
-        OperativosRecibidos=OperativosDB.find()
-        return render_template('ADMINISTRADOR/puestos/registrar.html', titulo=titulo,op=OperativosRecibidos)
+        AuxiliaresDB=DB['auxiliar']
+        AuxiliaresRecibidos=AuxiliaresDB.find()
+        return render_template('ADMINISTRADOR/puestos/registrar.html', titulo=titulo,auxiliar=AuxiliaresRecibidos)
        
 def Nuevo():
     if 'usuario-administrador' in session:
