@@ -13,7 +13,7 @@
       <section class="content mt-4">
         <div class="card shadow">
         <div class="card-header">
-            <h1 class="card-title">Base de datos operador</h1>
+            <h1 class="card-title">Base de datos auxiliar</h1>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped" id="example1">
@@ -24,8 +24,7 @@
                     <th>Correo</th>
                     <th>Edad</th>
                     <th>Telefono</th>
-                    <th>Puesto operativo</th>
-                    <th>Contraseña</th>
+                    
                 </tr>
                 </thead>
                 <tfoot>
@@ -34,20 +33,17 @@
                     <th>Correo</th>
                     <th>Edad</th>
                     <th>Telefono</th>
-                    <th>Puesto operativo</th>
-                    <th>Contraseña</th>
+                    
                 </tfoot>
 
                 <tbody>
-                    {% for dato in puesto %}
+                    {% for dato in auxiliar %}
                     <tr>
                         <td>{{ dato.identificador }}</td>
                         <td>{{ dato.nombre }}</td>
                         <td>{{ dato.correo }}</td>
                         <td>{{ dato.edad }}</td>
                         <td>{{ dato.telefono }}</td>
-                        <td>{{ dato.tipo_puesto }}</td>
-                        <td>{{ dato.password }}</td>
                     </tr>
                         {% endfor %}
                 </tbody>

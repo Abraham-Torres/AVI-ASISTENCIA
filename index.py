@@ -18,6 +18,7 @@ import funciones.asistencia.funciones_asistencia as fun_asist
 import funciones.login.funciones_login as fun_log
 import funciones.aplicacion.funciones_aplicacion as fun_app
 import funciones.infoPerfilAdmin.funciones_PerfilAdmin as fun_admin
+import funciones.auxiliares.funciones_auxliar as fun_aux
 import os
 
 
@@ -89,6 +90,42 @@ def Eliminar_Puesto(key):
 @app.route('/ACTUALIZAR-PUESTO/<key>,<campo>',methods=['POST'])
 def Actualizar_Puesto(key,campo):
     return fun_puest.Actualizar_puesto(key,campo)
+
+#**********************************************************************************************
+#FUNCION AUXILIAR(FORMULARIO)
+@app.route('/REGISTRAR-AUXILIAR')
+def Formulario_Aux():
+    return fun_aux.Formulario_Aux()
+
+#FUNCION AGREGAR AUXILIAR
+@app.route('/NUEVO-AUXILIAR', methods = ['POST'])
+def NuevoAuxiliar():
+    return fun_aux.Nuevo_Aux()
+
+#FUNCION DE BD AUXILIAR
+@app.route('/BASE-DATOS-AUXILIAR')
+def BaseDatosAuxiliar():
+    return fun_aux.AuxiliarDb()
+
+#FUNCION DE OPERACIONES AUXILIAR
+@app.route('/OPERACIONES-AUXILIAR')
+def Operaciones_Aux():
+    return fun_aux.Operaciones_Auxiliar()  
+
+#FUNCION DE INFORMACION
+@app.route('/INFORMACION-AUXILIAR<key>')
+def Informacion_Auxiliar(key):
+    return fun_aux.Informacion_Aux(key)
+
+#FUNCION DE INFORMACION/ELIMINAR 
+@app.route('/ELIMINAR-AUXILIAR<key>')
+def Eliminar_Auxiliar(key):
+    return fun_aux.Eliminar_Aux(key)    
+
+#FUNCION DE INFORMACION/ACTUALIZAR
+@app.route('/ACTUALIZAR-AUXILIAR/<key>,<campo>',methods=['POST'])
+def Actualizar_Auxiliar(key,campo):
+    return fun_aux.Actualizar_Aux(key,campo)      
 
 #**********************************************************************************************
 # FUNCION  DE DB DE PUESTOS OPERATIVOS

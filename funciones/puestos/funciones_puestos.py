@@ -15,7 +15,7 @@ def PuestoDb():
     elif 'usuario-empleado' in session:
         return redirect('/INICIAR-SESION-EMPLEADO')
 def Formulario():
-        titulo="Nuevo puesto"
+        titulo="Nuevo operador"
         OperativosDB=DB['operativos']
         OperativosRecibidos=OperativosDB.find()
         return render_template('ADMINISTRADOR/puestos/registrar.html', titulo=titulo,op=OperativosRecibidos)
@@ -36,7 +36,7 @@ def Nuevo():
             puestos=DB['puestos']
             puesto=Puesto(identificador,nombre,correo,edad,telefono,tipo_puesto,key,activo) 
             puestos.insert_one(puesto.datoPuestoJson())
-            return redirect('/REGISTRAR-PUESTO')  
+            return redirect('/BASE-DATOS-PUESTO')  
     
     elif 'usuario-empleado' in session:
         return redirect('/INICIAR-SESION-EMPLEADO') 

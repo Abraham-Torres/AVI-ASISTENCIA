@@ -13,29 +13,31 @@
       <section class="content mt-4">
         <div class="card shadow">
           <div class="card-header">
-            <h1 class="card-title">Operaciones operador</h1>
+            <h1 class="card-title">Operaciones auxiliar</h1>
           </div>
           <div class="card-body">
             <table class="table table-bordered table-striped" id="example1">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Nombre</th>
                   <th>Correo</th>
                   <th>Edad</th>
-                  <th>Puesto operativo</th>
+                  <th>Telefono</th>
                   <th class="text-center"><i class="fas fa-solid fa-screwdriver fa-wrench nav-icon"></i></th>
                 </tr>
               </thead>
 
               <tbody>
-                {% for dato in puesto %}
+                {% for dato in auxiliar %}
                 <tr> 
+                  <td>{{ dato.identificador }}</td>
                   <td>{{ dato.nombre }}</td>
                   <td>{{ dato.correo }}</td>
                   <td>{{ dato.edad }}</td>
-                  <td>{{ dato.tipo_puesto }}</td>
-                  <td class="text-center"> <a href="{{url_for('Informacion',key=dato.identificador)}}" class="btn btn-success"> <i class="fas fa-solid fa-pen nav-icon">
-                      </i> </a> <a href="{{url_for('Eliminar_Puesto',key=dato.identificador)}}" class="btn btn-danger"> 
+                  <td>{{ dato.telefono}}</td>
+                  <td class="text-center"> <a href="{{url_for('Informacion_Auxiliar',key=dato.identificador)}}" class="btn btn-success"> <i class="fas fa-solid fa-pen nav-icon">
+                      </i> </a> <a href="{{url_for('Eliminar_Auxiliar',key=dato.identificador)}}" class="btn btn-danger"> 
                         <i class="fas fa-solid fa-screwdriver fa-trash nav-icon"></i> </a></td>
                 </tr>
                 {% endfor %}

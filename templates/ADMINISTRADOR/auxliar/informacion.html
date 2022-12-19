@@ -64,7 +64,31 @@
                                 class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
                                 Editar</button>
                             </small>
-                            <p id="">{{puestos.nombre}}<span class="text-muted"></span></p>
+                            <p id="">{{auxiliares.nombre}}<span class="text-muted"></span></p>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <small>
+                              Correo Electronico:
+                              <button type="button" data-toggle="modal" data-target="#correo"
+                                class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
+                                Editar</button>
+                            </small>
+                            <p id="">{{auxiliares.correo}}<span class="text-muted"></span></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <small>
+                              Edad:
+                              <button type="button" data-toggle="modal" data-target="#edad"
+                                class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
+                                Editar</button>
+                            </small>
+                            <p id="vtitle">{{auxiliares.edad}}<span class="text-muted font-italic"></span></p>
                           </div>
                         </div>
                         <div class="col">
@@ -75,45 +99,9 @@
                                 class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
                                 Editar</button>
                             </small>
-                            <p id="">{{puestos.telefono}}<span class="text-muted"></span></p>
+                            <p id="vtitle">{{auxiliares.telefono}}<span class="text-muted font-italic"></span></p>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <small>
-                              Correo Electronico:
-                              <button type="button" data-toggle="modal" data-target="#correo"
-                                class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
-                                Editar</button>
-                            </small>
-                            <p id="vtitle">{{puestos.correo}}<span class="text-muted font-italic"></span></p>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <small>
-                              Edad:
-                              <button type="button" data-toggle="modal" data-target="#edad"
-                                class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
-                                Editar</button>
-                            </small>
-                            <p id="vtitle">{{puestos.edad}}<span class="text-muted font-italic"></span></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <small>
-                            Puesto:
-                            <button type="button" data-toggle="modal" data-target="#puesto"
-                              class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
-                              Editar</button>
-                          </small>
-                          <p id="vtitle">{{puestos.tipo_puesto}}<span class="text-muted font-italic"></span></p>
-                        </div>
-                        
                       </div>
                     </div>
                     <!-- /.tab-pane -->
@@ -132,7 +120,7 @@
       <!--Modales-->
       <div class="modal fade" id="nombre">
         <div class="modal-dialog modal-md">
-          <form class="modal-content" action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='nombre')}}"
+          <form class="modal-content" action="{{url_for('Actualizar_Auxiliar',key=auxiliares.identificador,campo='nombre')}}"
             method="post">
             <div class="modal-header">
               <h4 class="modal-title">Modificar Nombre</h4>
@@ -141,7 +129,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <input type="text" value="{{puestos.nombre}}" class="form-control rounded-pill" name="dato" id="dato">
+              <input type="text" value="{{auxiliares.nombre}}" class="form-control rounded-pill" name="dato" id="dato">
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default rounded-pill" data-dismiss="modal">Cancelar</button>
@@ -154,7 +142,7 @@
       <!-- /.content -->
       <div class="modal fade" id="correo">
         <div class="modal-dialog modal-md">
-          <form class="modal-content" action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='correo')}}"
+          <form class="modal-content" action="{{url_for('Actualizar_Auxiliar',key=auxiliares.identificador,campo='correo')}}"
             method="post">
             <div class="modal-header">
               <h4 class="modal-title">Modificar correo</h4>
@@ -163,7 +151,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <input type="text" value="{{puestos.correo}}" class="form-control rounded-pill" name="dato" id="dato">
+              <input type="text" value="{{auxiliares.correo}}" class="form-control rounded-pill" name="dato" id="dato">
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default rounded-pill" data-dismiss="modal">Cancelar</button>
@@ -176,7 +164,7 @@
       <!-- /.content -->
       <div class="modal fade" id="edad">
         <div class="modal-dialog modal-md">
-          <form class="modal-content" action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='edad')}}"
+          <form class="modal-content" action="{{url_for('Actualizar_Auxiliar',key=auxiliares.identificador,campo='edad')}}"
             method="post">
             <div class="modal-header">
               <h4 class="modal-title">Modificar edad</h4>
@@ -185,7 +173,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <input type="text" value="{{puestos.edad}}" class="form-control rounded-pill" name="dato" id="dato">
+              <input type="text" value="{{auxiliares.edad}}" class="form-control rounded-pill" name="dato" id="dato">
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default rounded-pill" data-dismiss="modal">Cancelar</button>
@@ -195,54 +183,30 @@
           <!-- /.modal-content -->
         </div>
       </div>
+        <!-- /.content -->
+        <div class="modal fade" id="telefono">
+          <div class="modal-dialog modal-md">
+            <form class="modal-content" action="{{url_for('Actualizar_Auxiliar',key=auxiliares.identificador,campo='telefono')}}"
+              method="post">
+              <div class="modal-header">
+                <h4 class="modal-title">Modificar telefono</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input type="text" value="{{auxiliares.telefono}}" class="form-control rounded-pill" name="dato" id="dato">
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default rounded-pill" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary rounded-pill">Guardar</button>
+              </div>
+            </form>
+            <!-- /.modal-content -->
+          </div>
+        </div>
+    
       <!-- /.content -->
-      <div class="modal fade" id="puesto">
-        <div class="modal-dialog modal-md">
-          <form class="modal-content" action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='tipo_puesto')}}"
-            method="post">
-            <div class="modal-header">
-              <h4 class="modal-title">Modificar puesto</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <select  class="form-control rounded-pill" name="dato" id="dato">
-                {% for dato in operativo %}
-                <option value="{{dato.PuestoOperativo}}" class="form-control rounded-pill">{{dato.PuestoOperativo}}
-                </option>{% endfor %}
-              </select> 
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default rounded-pill" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary rounded-pill">Guardar</button>
-            </div>
-          </form>
-          <!-- /.modal-content -->
-        </div>
-      </div>
-      <!-- /.content -->
-      <div class="modal fade" id="telefono">
-        <div class="modal-dialog modal-md">
-          <form class="modal-content"
-            action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='telefono')}}" method="post">
-            <div class="modal-header">
-              <h4 class="modal-title">Modificar telefono</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input type="text" value="{{puestos.telefono}}" class="form-control rounded-pill" name="dato" id="dato">
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default rounded-pill" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary rounded-pill">Guardar</button>
-            </div>
-          </form>
-          <!-- /.modal-content -->
-        </div>
-      </div>
     </div>
 
     <!-- /.content-wrapper -->

@@ -12,9 +12,9 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="container mt-4">
-        <form class="card shadow" action='/NUEVO-PUESTO' method="post">
+        <form class="card shadow" action='/NUEVO-AUXILIAR' method="post">
           <div class="card-header">
-            <h1 class="card-title">Registrar operador</h1>
+            <h1 class="card-title">Registrar auxiliar</h1>
           </div>
           <div class="card-body">
             <div class="row">
@@ -45,20 +45,6 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="form-group">
-                  <label for="" class="label">Operador</label>
-                  <select name="tipo_puesto" id="" class="form-control rounded-pill">
-                    {% for dato in op %}
-                    <option value="{{dato.PuestoOperativo}}" class="form-control">{{dato.PuestoOperativo}}
-                    </option>{% endfor %}
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="" class="label">Contraseña</label>
-                  <input type="password" class="form-control rounded-pill" name="password" value="Aviva">
-                </div>
               </div>
             </div>
             <div class="row">
@@ -69,11 +55,8 @@
                 </div>
               </div>
             </div>
-
           </div>
         </form>
-
-
       </section>
     </div>
     <!-- /.content-wrapper -->
