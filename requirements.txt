@@ -9,4 +9,6 @@ certifi
 justify
 pymongo
 pymongo[srv]
+pandas
+
 
