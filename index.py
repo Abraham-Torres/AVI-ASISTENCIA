@@ -91,6 +91,10 @@ def Eliminar_Puesto(key):
 def Actualizar_Puesto(key,campo):
     return fun_puest.Actualizar_puesto(key,campo)
 
+#FUNCION DE UPDLOAD OPERADORES
+@app.route('/UPLOAD-PUESTO', methods=['POST'])
+def upload_operadores():
+    return fun_puest.upload_operadores()
 #**********************************************************************************************
 #FUNCION AUXILIAR(FORMULARIO)
 @app.route('/REGISTRAR-AUXILIAR')
@@ -125,7 +129,13 @@ def Eliminar_Auxiliar(key):
 #FUNCION DE INFORMACION/ACTUALIZAR
 @app.route('/ACTUALIZAR-AUXILIAR/<key>,<campo>',methods=['POST'])
 def Actualizar_Auxiliar(key,campo):
-    return fun_aux.Actualizar_Aux(key,campo)      
+    return fun_aux.Actualizar_Aux(key,campo)    
+
+#FUNCION DE UPDLOAD AUXILIARES
+@app.route('/UPLOAD-AUXILIARES', methods=['POST'])
+def upload_auxiliares():
+    return fun_aux.upload_auxiliares()    
+
 
 #**********************************************************************************************
 # FUNCION  DE DB DE PUESTOS OPERATIVOS

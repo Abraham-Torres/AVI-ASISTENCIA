@@ -1,7 +1,8 @@
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session,flash
 from data_base import database as mongodb
 import random
 from forms.AUXILIAR.auxiliar import Auxiliar
+import pandas as pd
 
 DB =mongodb.dbConecction()
 
@@ -66,3 +67,33 @@ def Actualizar_Aux(key,campo):
         if dato:
                 auxiliares.update_one({'identificador':key}, {'$set':{campo:dato}})
                 return Informacion_Aux(key)
+
+def upload_auxiliares():
+        file = request.files["upload_auxiliares"]
+        auxiliares = DB['auxiliar']
+
+        datos =[]
+        try:
+                excel = pd.read_excel(file, sheet_name='Sheet1',skiprows=1)
+                for index, row in excel.iterrows():
+                        def datoss():
+                                return{
+                                'identificador': str(row[0]),
+                                'nombre': row[1],
+                                'correo': row [2],
+                                'edad': row [3],
+                                'telefono': row[4]        
+                                }
+                datos.append(datoss())
+                print(datos)
+
+        except:
+                flash('ERROR CON EL ARCHIVO EXCEL, POR FAVOR UTILIZAR LA PLANTILLA')
+                return redirect('/BASE-DATOS-AUXILIAR')
+
+        try:
+                auxiliares.insert_many(datos)   
+                return redirect('/BASE-DATOS-AUXILIAR')
+        except:
+                print('ERROR CON LA INSERSION MONGO')
+                return redirect('/BASE-DATOS-AUXILIAR')

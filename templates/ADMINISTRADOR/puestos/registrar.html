@@ -69,13 +69,77 @@
                 </div>
               </div>
             </div>
-
           </div>
         </form>
-
-
       </section>
+
+      <div class="container mt-4">
+        <section class="card shadow">
+          <div class="card">
+            <div class="card-header">
+              Registrar operadores por medio de Excel
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">Puedes realizar una carga masiva por medio de un archivo de Excel</p>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#excel">Agregar
+                desde Excel</a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
+
+    <!--Modal-->
+    <!--modal de excel-->
+    <div class="modal fade" id="excel">
+      <div class="modal-dialog modal-md border border-dark">
+        <form class="modal-content" action="/UPLOAD-PUESTO" method="post"
+          enctype="multipart/form-data">
+          <div class="modal-header text-center">
+            <h4 class="modal-title">Carga Masiva de Datos</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="fs-1">
+                  Descarga la plantilla para cargar los datos
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <a href="{{ url_for('static', filename = 'excel/operadores.xlsx')}}"
+                  class="btn btn-success float-sm-right">Descargar Excel</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="exampleInputFile"
+                        name="upload_operadores" />
+                      <label class="custom-file-label" for="exampleInputFile">Cambiar Archivo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-secondary">
+              Guardar
+            </button>
+          </div>
+        </form>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
     <!-- /.content-wrapper -->
     {% include 'ADMINISTRADOR/modulos/footer.html' %}
     {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
