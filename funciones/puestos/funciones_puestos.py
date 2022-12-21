@@ -5,7 +5,6 @@ import random
 import pandas as pd
 import json 
 import qrcode
-from PIL import Image
 from werkzeug.security import generate_password_hash, check_password_hash
 
 DB = mongodb.dbConecction()

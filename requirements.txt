@@ -11,7 +11,7 @@ pymongo
 pymongo[srv]
 pandas
 qrcode
-pill
+
 
 
 
