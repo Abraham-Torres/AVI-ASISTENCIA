@@ -4,6 +4,10 @@
 {% include 'ADMINISTRADOR/modulos/header.html' %}
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+        height="60" width="60" />
+    </div>
     <!-- Navbar -->
     {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
     <!-- /.navbar -->

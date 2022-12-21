@@ -11,39 +11,44 @@ def AsistenciaDB():
     asistencia = asistenciaDB.find()
     return render_template('/ADMINISTRADOR/asistencia/base_datos.html',titulo=titulo,asistencia=asistencia)
 
+
 def AsistenciaApp():
     if 'usuario-administrador' in session:
         return redirect('/INICIAR-SESION-EMPLEADO')
-    elif 'usuario-empleado' in session:
-         datosPuestoDB = DB['puestos']
-         asistenciaDB = DB['asistencia']
-         DatosPuesto = datosPuestoDB.find_one({'correo':session['usuario-empleado']})
-         id = DatosPuesto['identificador']
-         datosPuestoDB.update_one({'identificador':id},{'$set':{'activo':True}})
-         nombre = DatosPuesto['nombre']
-         fecha = time.strftime('%d-%m-%y')
-         puesto = DatosPuesto['Puesto']
-         identificador = str(fecha)+str(session['usuario-empleado'])
-         operativo = request.form['EstadoOperativo']
-         inicio = time.strftime('%X')
-         fin = '00:00:00'
 
-         if identificador and nombre and fecha and inicio and operativo and puesto and fin:
-            asistencia=Asistencia(identificador, nombre, fecha, inicio, operativo, puesto, fin)
+    elif 'usuario-empleado' in session:
+        datosPuestoDB = DB['puestos']
+        asistenciaDB = DB['asistencia']
+        DatosPuesto = datosPuestoDB.find_one({'correo':session['usuario-empleado']})
+        id = DatosPuesto['identificador']
+        datosPuestoDB.update_one({'identificador':id},{'$set':{'activo':True}})
+        nombre = DatosPuesto['nombre']
+        edad = DatosPuesto['edad']
+        telefono = DatosPuesto['telefono']     
+        auxiliar = DatosPuesto['auxiliar']
+        placas = request.form['placas']
+        estado = request.form['EstadoOperativo']
+        fecha = time.strftime('%d-%m-%y')
+        identificador = str(fecha)+str(session['usuario-empleado'])
+        inicio = time.strftime('%X')
+        fin = '00:00:00'
+
+        if identificador and nombre and edad and telefono and auxiliar and placas and estado and fecha and inicio and fin:
+            asistencia = Asistencia(identificador, nombre, edad, telefono, auxiliar, placas, estado, fecha, inicio, fin)
             asistenciaDB.insert_one(asistencia.datosAsistenciaJson())
-    return redirect('/HOME-APP')      
+    return redirect('/HOME-APP')        
 
 def AsistenciaFinalizada():
     datosPuestoDB = DB['puestos']
+    asistenciaDB = DB['asistencia']
     DatosPuesto = datosPuestoDB.find_one({'correo':session['usuario-empleado']})
     id = DatosPuesto['identificador']
-    datosPuestoDB.update_one({'identificador':id},{'$set':{'activo':False}})
+    datosPuestoDB.update_one({'identificador':id}, {'$set':{'activo':False}})
     fecha = time.strftime('%d-%m-%y')
     hora = time.strftime('%X')
     identificador = str(fecha)+str(session['usuario-empleado'])
     asistenciaDB = DB['asistencia']
     asistenciaDB.update_one({'identificador':identificador},{'$set':{'fin':hora}})
+
     return redirect('/HOME-APP')
-
-
 

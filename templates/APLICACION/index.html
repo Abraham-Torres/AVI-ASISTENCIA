@@ -7,6 +7,10 @@
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+        height="60" width="60" />
+    </div>
     <!-- Navbar -->
     {% include 'APLICACION/modulos/nav-bar.html' %}
     <!-- /.navbar -->
@@ -68,7 +72,7 @@
                 <div class="description-block">
                   <div class="form-group">
                   <label>Placas de la unidad</label>
-                  <input type="text" class="form-control rounded-pill">
+                  <input type="text" class="form-control rounded-pill" name="placas" id="placas" onblur="upperCase()" required>
                   </div>
                   <!--select multiple-->
                   
@@ -96,7 +100,7 @@
         <!--third card-->
         <div class="card card-widget widget-user shadow">
           <!-- Add the bg color to the header using any of the bg-* classes -->
-          <div class="widget-user-header text-white" style="background-color:rgba(55, 168, 74, 0.773);">
+          <div class="widget-user-header text-white" style="background-color:rgba(45, 156, 64, 0.773);">
             <h3 id="fecha"></h3>
             <h4 id="hora"></h4>
             <br>
@@ -122,10 +126,10 @@
 
           </div>
         </div>
-
+      </form>
     </div>
     <br>
-    </form>
+
   </div>
 
   <script>
@@ -189,6 +193,12 @@
     setInterval(udateTime, 1000);
   </script>
 
+  <script type="text/javascript">
+    function upperCase() {
+      var x=document.getElementById("placas").value 
+      document.getElementById("placas").value=x.toUpperCase();
+    }
+  </script>
 
   <!-- /.content-wrapper -->
 

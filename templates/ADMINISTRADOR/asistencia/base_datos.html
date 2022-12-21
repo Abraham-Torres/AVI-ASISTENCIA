@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
-<meta http-equiv="refresh" content="120">
 {% include 'ADMINISTRADOR/modulos/header.html' %}
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+              height="60" width="60" />
+          </div>
         <!-- Navbar -->
         {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
         <!-- /.navbar -->
@@ -22,10 +25,13 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Telefono</th>
+                                    <th>Auxiliar</th>
+                                    <th>Placas</th>
+                                    <th>Estado</th>
                                     <th>Fecha</th>
                                     <th>Inicio</th>
-                                    <th>Operativo</th>
-                                    <th>Puesto</th>
                                     <th>Fin</th>
                                     
                                 </tr>
@@ -33,11 +39,14 @@
                             <tbody>
                                 {% for dato in asistencia %}
                                 <tr>
-                                    <td>{{ dato.Nombre}}</td>
-                                    <td>{{ dato.Fecha}}</td>
-                                    <td>{{ dato.Inicio}}</td>
-                                    <td>{{ dato.Estado}}</td>
-                                    <td>{{ dato.Puesto}}</td>
+                                    <td>{{ dato.nombre}}</td>
+                                    <td>{{ dato.edad}}</td>
+                                    <td>{{ dato.telefono}}</td>
+                                    <td>{{ dato.auxiliar}}</td>
+                                    <td>{{ dato.placas}}</td>
+                                    <td>{{ dato.estado}}</td>
+                                    <td>{{ dato.fecha}}</td>
+                                    <td>{{ dato.inicio}}</td>
                                     <td>{{ dato.fin}}</td>
                                     
                                 {% endfor %}

@@ -3,8 +3,6 @@ from data_base import database as mongodb
 from forms.PUESTO.puesto import Puesto
 import random
 import pandas as pd
-import json 
-import qrcode
 from werkzeug.security import generate_password_hash, check_password_hash
 
 DB = mongodb.dbConecction()
@@ -57,10 +55,10 @@ def Operaciones_Puesto():
 def Informacion_Puesto(key):
         titulo="Informacion puesto"
         puestos = DB['puestos']
-        puestoOperativo = DB['operativos']
-        operativo = puestoOperativo.find()    
+        auxiliares = DB['auxiliar']
+        auxiliar = auxiliares.find()    
         puestoRecibido=puestos.find_one({'identificador':key})
-        return render_template('ADMINISTRADOR/puestos/informacion.html',titulo=titulo, puestos=puestoRecibido,operativo=operativo) 
+        return render_template('ADMINISTRADOR/puestos/informacion.html',titulo=titulo, puestos=puestoRecibido,aux=auxiliar) 
 
 def Eliminar_Puesto(key):
     puestos= DB['puestos']
@@ -96,7 +94,7 @@ def upload_operadores():
             datos.append(datoss())
             print(datos)  
     except:
-        flash('ERROR CON EL ARCHIVIO EXCEL, POR FAVOR UTILIZAR LA PLATILLA') 
+        flash('¡ERROR CON EL ARCHIVO EXCEL! POR FAVOR UTILIZAR LA PLATILLA') 
         return redirect('/BASE-DATOS-PUESTO')
                 
     try :

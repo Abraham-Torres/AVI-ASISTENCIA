@@ -4,6 +4,10 @@
 {% include 'ADMINISTRADOR/modulos/header.html' %}
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+        height="60" width="60" />
+    </div>
     <!-- Navbar -->
     {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
     <!-- /.navbar -->
@@ -106,12 +110,12 @@
                       <div class="row">
                         <div class="col">
                           <small>
-                            Puesto:
+                            Auxiliar:
                             <button type="button" data-toggle="modal" data-target="#puesto"
                               class="btn btn-xs btn-link btnOpenEdit"><i class="fa-solid fas fa-pen"></i>
                               Editar</button>
                           </small>
-                          <p id="vtitle">{{puestos.tipo_puesto}}<span class="text-muted font-italic"></span></p>
+                          <p id="vtitle">{{puestos.auxiliar}}<span class="text-muted font-italic"></span></p>
                         </div>
                         
                       </div>
@@ -198,18 +202,18 @@
       <!-- /.content -->
       <div class="modal fade" id="puesto">
         <div class="modal-dialog modal-md">
-          <form class="modal-content" action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='tipo_puesto')}}"
+          <form class="modal-content" action="{{url_for('Actualizar_Puesto',key=puestos.identificador,campo='auxiliar')}}"
             method="post">
             <div class="modal-header">
-              <h4 class="modal-title">Modificar puesto</h4>
+              <h4 class="modal-title">Modificar auxiliar</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <select  class="form-control rounded-pill" name="dato" id="dato">
-                {% for dato in operativo %}
-                <option value="{{dato.PuestoOperativo}}" class="form-control rounded-pill">{{dato.PuestoOperativo}}
+                {% for dato in aux %}
+                <option value="{{dato.nombre}}" class="form-control rounded-pill">{{dato.nombre}}
                 </option>{% endfor %}
               </select> 
             </div>

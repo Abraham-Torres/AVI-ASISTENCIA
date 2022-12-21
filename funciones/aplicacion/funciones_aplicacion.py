@@ -41,9 +41,8 @@ def homeAppPage():
         titulo='Incio APP'
         datosPuestoDB = DB['puestos']
         datosEstadoDB = DB['estadoscat']
-        AsistenciaDB = DB ['asistencia']
         Estado = datosEstadoDB.find()
         puestos = datosPuestoDB.find_one({'correo':session['usuario-empleado']})
-        return render_template('/APLICACION/index.html',titulo=titulo,Estado=Estado,puestos=puestos, asistencia=AsistenciaDB)
+        return render_template('/APLICACION/index.html',titulo=titulo,Estado=Estado,puestos=puestos)
 
         

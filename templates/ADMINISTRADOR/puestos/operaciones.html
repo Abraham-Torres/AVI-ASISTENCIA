@@ -4,6 +4,10 @@
 {% include 'ADMINISTRADOR/modulos/header.html' %}
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+        height="60" width="60" />
+    </div>
     <!-- Navbar -->
     {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
     <!-- /.navbar -->
@@ -22,7 +26,7 @@
                   <th>Nombre</th>
                   <th>Correo</th>
                   <th>Edad</th>
-                  <th>Puesto operativo</th>
+                  <th>Auxiliar</th>
                   <th class="text-center"><i class="fas fa-solid fa-screwdriver fa-wrench nav-icon"></i></th>
                 </tr>
               </thead>
@@ -33,7 +37,7 @@
                   <td>{{ dato.nombre }}</td>
                   <td>{{ dato.correo }}</td>
                   <td>{{ dato.edad }}</td>
-                  <td>{{ dato.tipo_puesto }}</td>
+                  <td>{{ dato.auxiliar }}</td>
                   <td class="text-center"> <a href="{{url_for('Informacion',key=dato.identificador)}}" class="btn btn-success"> <i class="fas fa-solid fa-pen nav-icon">
                       </i> </a> <a href="{{url_for('Eliminar_Puesto',key=dato.identificador)}}" class="btn btn-danger"> 
                         <i class="fas fa-solid fa-screwdriver fa-trash nav-icon"></i> </a></td>

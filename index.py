@@ -12,7 +12,6 @@ y retornamos el alis del archivo, ademas de la funcion que hicimos dentro de fun
 import funciones.servidor.funciones_Servidor as fun_serv
 import funciones.homePage.funciones_HomePage as fun_home
 import funciones.puestos.funciones_puestos as fun_puest
-import funciones.puestosOperativos.funciones_puestosOperativos as fun_op
 import funciones.estadosOperativos.funciones_estadosOperativos as fun_status
 import funciones.asistencia.funciones_asistencia as fun_asist
 import funciones.login.funciones_login as fun_log
@@ -135,23 +134,6 @@ def Actualizar_Auxiliar(key,campo):
 @app.route('/UPLOAD-AUXILIARES', methods=['POST'])
 def upload_auxiliares():
     return fun_aux.upload_auxiliares()    
-
-
-#**********************************************************************************************
-# FUNCION  DE DB DE PUESTOS OPERATIVOS
-@app.route('/BASE-DATOS-PUESTOS-OPERATIVOS')
-def BaseDatosOperativos():
-    return fun_op.PuestoOperativoDb()
-
-#FUNCION DE AGREGAR PUESTOS OPERATIVOS
-@app.route('/NUEVO-PUESTO-OPERATIVO',methods = ['POST'])
-def NuevoOperativo():
-    return fun_op.NuevoPuestoOperativo()  
-
-#FUNCION DE ELIMINAR PUESTO OPERATIVOS 
-@app.route('/ELIMINAR-PUESTO-OPERATIVOS<key>')
-def EliminarOperativo(key):
-    return fun_op.EliminarPuestoOperativo(key)
 
 #**********************************************************************************************   
 
