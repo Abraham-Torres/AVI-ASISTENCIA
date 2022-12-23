@@ -1,6 +1,6 @@
 from flask import render_template, request, session, redirect, flash
 from data_base import database as mongodb
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
 DB = mongodb.dbConecction()
@@ -44,5 +44,24 @@ def homeAppPage():
         Estado = datosEstadoDB.find()
         puestos = datosPuestoDB.find_one({'correo':session['usuario-empleado']})
         return render_template('/APLICACION/index.html',titulo=titulo,Estado=Estado,puestos=puestos)
+
+def InformacionEmpleado():
+    titulo = 'Informacion empleado'
+    EmpleadoDB = DB['puestos']
+    Empleado = EmpleadoDB.find_one({'correo':session['usuario-empleado']})
+    return render_template('/APLICACION/informacion_empleado.html',titulo = titulo, operador = Empleado)
+
+def ActualizarPasswordEmpleado(key,campo):
+    EmpleadoDB = DB['puestos']
+    dato = request.form['dato']
+    if dato:
+        dato = generate_password_hash(dato, method='sha256')
+        EmpleadoDB.update_one({'correo':key},{'$set':{campo:dato}})
+        print(dato)
+    return InformacionEmpleado()   
+
+
+
+
 
         

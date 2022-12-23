@@ -37,7 +37,7 @@ def Nuevo():
             puestos=DB['puestos']
             puesto=Puesto(identificador,nombre,correo,edad,telefono,tipo_puesto,key,activo) 
             puestos.insert_one(puesto.datoPuestoJson())
-            return redirect('/BASE-DATOS-PUESTO')  
+            return redirect('/BASE-DATOS-OPERADOR')  
     
     elif 'usuario-empleado' in session:
         return redirect('/INICIAR-SESION-EMPLEADO') 
@@ -63,7 +63,7 @@ def Informacion_Puesto(key):
 def Eliminar_Puesto(key):
     puestos= DB['puestos']
     puestos.delete_one({'identificador':key})
-    return redirect('/OPERACIONES-PUESTO')
+    return redirect('/OPERACIONES-OPERADOR')
 
 def Actualizar_puesto(key,campo):
     puestos= DB['puestos']
@@ -95,11 +95,11 @@ def upload_operadores():
             print(datos)  
     except:
         flash('¡ERROR CON EL ARCHIVO EXCEL! POR FAVOR UTILIZAR LA PLATILLA') 
-        return redirect('/BASE-DATOS-PUESTO')
+        return redirect('/BASE-DATOS-OPERADOR')
                 
     try :
         operadores.insert_many(datos)
-        return redirect('/BASE-DATOS-PUESTO')
+        return redirect('/BASE-DATOS-OPERADOR')
     except:
         print('ERROR CON LA INSERCION MONGO')
-        return redirect('/BASE-DATOS-PUESTO')
+        return redirect('/BASE-DATOS-OPERADOR')

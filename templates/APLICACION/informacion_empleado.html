@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'APLICACION/modulos/header.html' %}
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+              height="60" width="60" />
+          </div>
+        <!-- Navbar -->
+        {% include 'APLICACION/modulos/nav-bar.html' %}
+        <!-- /.navbar -->
+        {% include 'APLICACION/modulos/menu.html' %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Profile Image -->
+            <section class="container mt-4">
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle"
+                                src="{{ url_for('static', filename = 'dist/img/A-LOGO.png')}}"
+                                alt="User profile picture">
+                        </div>
+                        <h3 class="profile-username text-center"></h3>
+                        <p class="text-muted text-center">Operador</p>
+                        <div class="card card-info card-outline">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <small>
+                                                Contraseña:
+                                                <button type="button" data-toggle="modal" data-target="#contraseña"
+                                                    class="btn btn-xs btn-link btnOpenEdit"><i
+                                                        class="fa-solid fas fa-pen"></i>
+                                                    Editar</button>
+                                            </small>
+                                            <p>
+                                            <input type="password" value="1234567890" class="form-control-sm rounded-pill" disabled>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </section>
+        </div>
+
+        <!--Modales-->
+        <div class="modal fade" id="contraseña">
+            <div class="modal-dialog modal-md">
+                <form class="modal-content" action="{{url_for('ActualizarContraseñaEmpleado',key=operador.correo,campo='password')}}" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar Contraseña</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" value="" class="form-control rounded-pill" name="dato" id="dato">
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default rounded-pill"
+                            data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Guardar</button>
+                    </div>
+                </form>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+        {% include 'APLICACION/modulos/footer.html' %}
+        {% include 'APLICACION/modulos/side-bar-control.html' %}
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    {% include 'APLICACION/modulos/scripts.html' %}
+</body>
+
+</html>

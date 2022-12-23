@@ -5,6 +5,14 @@ DB = mongodb.dbConecction()
 
 def Home():
     titulo="Inicio"
-    return render_template('/index.html',titulo=titulo)
+    operadores = DB['puestos']
+    auxiliares = DB['auxiliar']
+    auxiliaresTot = auxiliares.count_documents({})
+    operadoresTot = operadores.count_documents({})
+    print(operadoresTot)
+    print(auxiliaresTot)
+    return render_template('/index.html',titulo=titulo, Operadores=operadoresTot, Auxiliares= auxiliaresTot)
+
+  
 
     

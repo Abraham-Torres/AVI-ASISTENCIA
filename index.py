@@ -33,6 +33,7 @@ app.port = os.getenv("PORT")
 @app.route('/HOME')
 def HomePage():
     return fun_home.Home()
+    
 
 #**********************************************************************************************
 #FUNCION DE INFORMACION PERFIL
@@ -55,33 +56,33 @@ def NuevoAdministrador():
 def ActualizarAdministrador(key, campo):
     return fun_admin.ActualizarAdministrador(key, campo)
 #**********************************************************************************************
-#FUNCION PUESTO(FORMULARIO)
-@app.route('/REGISTRAR-PUESTO')
+#FUNCION OPERADOR(FORMULARIO)
+@app.route('/REGISTRAR-OPERADOR')
 def FormularioPuesto():
     return fun_puest.Formulario()
 
-#FUNCION AGREGAR PUESTO
-@app.route('/NUEVO-PUESTO',methods=['POST'])
+#FUNCION AGREGAR OPERADOR
+@app.route('/NUEVO-OPERADOR',methods=['POST'])
 def NuevoPuesto():
     return fun_puest.Nuevo()    
     
-#FUNCION DE BD PUESTOS
-@app.route('/BASE-DATOS-PUESTO')
+#FUNCION DE BD OPERADOR
+@app.route('/BASE-DATOS-OPERADOR')
 def BaseDatos():
     return fun_puest.PuestoDb()
 
-#FUNCION DE OPERACIONES PUESTO
-@app.route('/OPERACIONES-PUESTO')
+#FUNCION DE OPERACIONES OPERADOR
+@app.route('/OPERACIONES-OPERADOR')
 def Operaciones():
     return fun_puest.Operaciones_Puesto()
 
-#FUNCION DE INFORMACION PUESTO
-@app.route('/INFORMACION-PUESTO<key>')
+#FUNCION DE INFORMACION OPERADOR
+@app.route('/INFORMACION-OPERADOR<key>')
 def Informacion(key):
     return fun_puest.Informacion_Puesto(key)    
 
 #FUNCION DE INFORMACION/ELIMINAR
-@app.route('/ELIMINAR-PUESTO<key>')
+@app.route('/ELIMINAR-OPERADOR<key>')
 def Eliminar_Puesto(key):
     return fun_puest.Eliminar_Puesto(key)
 
@@ -201,6 +202,16 @@ def autenticacionSesionEmpleado():
 def HomeApp():
     return fun_app.homeAppPage()
 
+#FUNCION DE INFORMACION DE PERFIL
+@app.route('/INFORMACION-PERFIL-EMPLEADO')
+def InformacionPerfilEmpleado():
+    return fun_app.InformacionEmpleado()
+
+#FUNCION DE ACTUALIZAR CONTRASEÑA PERFIL
+@app.route('/ACTUALIZAR-CONTRASEÑA-EMPLEADO/<key>,<campo>',methods=['POST'])
+def ActualizarContraseñaEmpleado(key, campo):
+    return fun_app.ActualizarPasswordEmpleado(key,campo)    
+
 #FUNCION DE REGISTRAR ASISTENCIA APP
 @app.route('/ASISTENCIA-EMPLEADO', methods = ['POST'])
 def AsistenciaEmpleado():
@@ -214,7 +225,7 @@ def asistenciaEmpleadoFin():
 
 #FUNCION DE PAGINA NO ENCONTRADA    
 def Pagina_no_encontrada(error):
-        return fun_serv.Error_404(error)
+    return fun_serv.Error_404(error)
 
 #**********************************************************************************************
 
