@@ -1,0 +1,74 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href='/HOME-SUPER-SU' class="brand-link">
+        
+      <img src="{{ url_for('static', filename = 'dist/img/A-LOGO.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">SUPER ADMIN</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      
+
+      <!-- SidebarSearch Form -->
+     
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-header">ADMINISTRADORES</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-address-card fa-solid"></i>
+              <p>
+                Administrar
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/REGISTRAR-ADMINISTRADOR" class="nav-link">
+                  <i class="fas fa-solid fa-file fa-circle fa-plus nav-icon"></i>
+                  <p>Agregar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/BASE-DATOS-ADMINISTRADORES" class="nav-link">
+                  <i class="fas fa-solid fa-database nav-icon"></i>
+                  <p>Base de Datos</p>
+                </a>
+              </li>
+            </ul>
+          </li> 
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+<script>
+  $('.toastsDefaultWarning').click(function() {
+      $(document).Toasts('create', {
+        class: 'bg-warning',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+
+    $('.toastrDefaultError').click(function() {
+      toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+
+    $('.swalDefaultWarning').click(function() {
+      Toast.fire({
+        icon: 'warning',
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+</script>

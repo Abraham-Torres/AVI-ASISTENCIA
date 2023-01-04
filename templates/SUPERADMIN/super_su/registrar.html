@@ -6,13 +6,13 @@
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <!-- Navbar -->
-    {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+    {% include 'SUPERADMIN/modulos/nav-bar.html' %}
     <!-- /.navbar -->
-    {% include 'ADMINISTRADOR/modulos/menu.html' %}
+    {% include 'SUPERADMIN/modulos/menu.html' %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="container mt-4">
-        <form class="card shadow" action='/' method="post">
+        <form class="card shadow" action='/NUEVO-ADMINISTRADOR' method="post">
           <div class="card-header">
             <h1 class="card-title">Registrar administrador</h1>
           </div>
@@ -47,20 +47,18 @@
                 </div>
               </div>
             </div>
-
           </div>
-        </form>
-
-
+        </form> 
       </section>
     </div>
+
     <!-- /.content-wrapper -->
-    {% include 'ADMINISTRADOR/modulos/footer.html' %}
-    {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+    {% include 'SUPERADMIN/modulos/footer.html' %}
+    {% include 'SUPERADMIN/modulos/side-bar-control.html' %}
   </div>
   <!-- ./wrapper -->
   <!-- jQuery -->
-  {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+  {% include 'SUPERADMIN/modulos/scripts.html' %}
 </body>
 
 </html>

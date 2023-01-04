@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
+{% include 'SUPERADMIN/modulos/header.html' %}
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="{{ url_for('static', filename = 'dist/img/icons/loader.png')}}" alt="LOGO"
+        height="60" width="60" />
+    </div>
+    <!-- Navbar -->
+  {% include 'SUPERADMIN/modulos/nav-bar.html' %}
+  <!-- /.navbar -->
+  {% include 'SUPERADMIN/modulos/menu.html' %}
+  <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="content mt-4">
+        <div class="card shadow">
+        <div class="card-header">
+            <h1 class="card-title">Base de datos administradores</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped" id="example1">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th class="text-center"><i class="fas fa-solid fa-screwdriver fa-wrench nav-icon"></i></th>
+
+                </tr>
+                </thead>
+                <tfoot>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th class="text-center"><i class="fas fa-solid fa-screwdriver fa-wrench nav-icon"></i></th>
+
+                </tfoot>
+
+                <tbody>
+                    {% for dato in Admin %}
+                    <tr>
+                        <td>{{ dato.identificador }}</td>
+                        <td>{{ dato.nombre }}</td>
+                        <td>{{ dato.correo }}</td>
+                        <td class="text-center"> <a href="{{url_for('Informacion_administrador',key=dato.identificador)}}" class="btn btn-success"> <i class="fas fa-solid fa-pen nav-icon">
+                        </i> </a> <a href="{{url_for('Eliminar_Admin',key=dato.identificador)}}" class="btn btn-danger"> 
+                          <i class="fas fa-solid fa-screwdriver fa-trash nav-icon"></i> </a></td>
+                        
+                    </tr>
+                        {% endfor %}
+                </tbody>
+                
+
+            </table>
+        </div>
+    </div>
+      </section>
+    </div>
+  <!-- /.content-wrapper -->
+  {% include 'SUPERADMIN/modulos/footer.html' %}
+  {% include 'SUPERADMIN/modulos/side-bar-control.html' %}
+  </div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+{% include 'SUPERADMIN/modulos/scripts.html' %}
+</body>
+
+</html>
+
+
+

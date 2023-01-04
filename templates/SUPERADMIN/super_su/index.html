@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='dist/img/A-LOGO.png')}}">
-{% include 'ADMINISTRADOR/modulos/header.html' %}
+{% include 'SUPERADMIN/modulos/header.html' %}
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -10,9 +12,9 @@
         height="60" width="60" />
     </div>
     <!-- Navbar -->
-    {% include 'ADMINISTRADOR/modulos/nav-bar.html' %}
+    {% include 'SUPERADMIN/modulos/nav-bar.html' %}
     <!-- /.navbar -->
-    {% include 'ADMINISTRADOR/modulos/menu.html' %}
+    {% include 'SUPERADMIN/modulos/menu.html' %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="container mt-4">
@@ -22,52 +24,29 @@
             <div class="small-box bg-default shadow">
               <div class="inner">
                 <h3><sup style="font-size: 10px"></sup></h3>
-                <p><strong>Total de operadores</strong></p>
-                <h3>{{Operadores}}</h3>
+                <p><strong>Total de administradores</strong></p>
+                <h3>{{Admin}}</h3>
               </div>
               <div class="icon">
-                <i class="fa fa-solid fa-truck"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <!-- small box -->
-            <div class="small-box bg-success shadow">
-              <div class="inner">
-                <h3><sup style="font-size: 20px"></sup></h3>
-                <p><strong>Total de auxiliares</strong></p>
-                <h3>{{Auxiliares}}</h3>
-              </div>
-              <div class="icon">
-                <i class="fa fa-solid fa-user"></i>
+                <i class="fa fa-solid fa-user-tie"></i>
               </div>
             </div>
           </div>
           <!-- small box -->
           <div class="col">
-            <div class="small-box bg-primary shadow">
+            <div class="small-box bg-dark shadow">
               <div class="inner">
                 <h3><sup style="font-size: 20px"></sup></h3>
-                <p><strong>Empleados totales</strong></p>
-                <h3>{{Empleados}}</h3>
-              </div>
-              <div class="icon">
-                <i class="fa fa-solid fa-users"></i>
+                <h3 id="fecha"></h3>
+                <h4 id="hora"></h4>
+                <div class="icon">
+                  <i class="fa fa-solid fa-clock" style="color: rgb(255, 255, 255);"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- small box -->
-        <div class="small-box bg-dark shadow">
-          <div class="inner">
-            <h3><sup style="font-size: 20px"></sup></h3>
-            <h3 id="fecha"></h3>
-            <h4 id="hora"></h4>
-            <div class="icon">
-              <i class="fa fa-solid fa-clock" style="color: rgb(255, 255, 255);"></i>
-            </div>
-          </div>
-        </div>
+
         <!--Charts-->
         <!--Dona-->
         <div class="card card-danger">
@@ -85,23 +64,37 @@
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
+      </section>
 
-        <!--barras-->
-        <div class="card card-info">
-          <div class="card-header">
-            <h3 class="card-title">Eficiencia por mes</h3>
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-            </div>
+    </div>
+
+    <div class="modal fade" id="modal-default">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Espera que?</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="card-body">
-            <canvas id="Barras" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+          <div class="modal-body">
+            <p>Como llegaste aqui? >:v esta vista solo es para super usuarios&hellip;</p>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
-      </section>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
     </div>
+    <!-- /.modal -->
+
+    <script>
+      $(document).ready(function () {
+        $('#modal-default').modal('toggle')
+      })
+    </script>
 
     <!--Libreria chart-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -127,41 +120,6 @@
         options: {
 
         }
-      });
-    </script>
-
-    <!--Script del chart doughnut-->
-    <script>
-      const chartBar = document.getElementById('Barras');
-
-      new Chart(chartBar, {
-        type: 'bar',
-        data: {
-          labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-          datasets: [{
-            label: "Eficiencia de asistencia por mes",
-            data: [65, 59, 80, 81, 56, 55, 40],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(201, 203, 207, 0.2)'
-            ],
-            borderColor: [
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(54, 162, 235)',
-              'rgb(153, 102, 255)',
-              'rgb(201, 203, 207)'
-            ],
-            borderWidth: 1,
-          }]
-        },
       });
     </script>
 
@@ -223,12 +181,12 @@
       setInterval(udateTime, 1000);
     </script>
     <!-- /.content-wrapper -->
-    {% include 'ADMINISTRADOR/modulos/footer.html' %}
-    {% include 'ADMINISTRADOR/modulos/side-bar-control.html' %}
+    {% include 'SUPERADMIN/modulos/footer.html' %}
+    {% include 'SUPERADMIN/modulos/side-bar-control.html' %}
   </div>
   <!-- ./wrapper -->
   <!-- jQuery -->
-  {% include 'ADMINISTRADOR/modulos/scripts.html' %}
+  {% include 'SUPERADMIN/modulos/scripts.html' %}
 </body>
 
 </html>

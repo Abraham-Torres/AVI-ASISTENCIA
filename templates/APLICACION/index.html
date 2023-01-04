@@ -27,7 +27,8 @@
             <h5 class="widget-user-desc text-right">Operador</h5>
           </div>
           <div class="widget-user-image">
-            <img class="img-circle" src="{{url_for('static',filename='dist/img/conductor.png')}}" alt="User profile image">
+            <img class="img-circle" src="{{url_for('static',filename='dist/img/conductor.png')}}"
+              alt="User profile image">
           </div>
           <div class="card-footer">
             <div class="row">
@@ -71,19 +72,40 @@
               <div class="col-md">
                 <div class="description-block">
                   <div class="form-group">
-                  <label>Placas de la unidad</label>
-                  <input type="text" class="form-control rounded-pill" name="placas" id="placas" onblur="upperCase()" required>
+                    <label>Placas de la unidad</label>
+                    {% if puestos.activo == False%}
+                    <input type="text" class="form-control rounded-pill" name="placas" id="placas" onblur="upperCase()"
+                      required>
+                    {% endif %}
+
+                      {% if puestos.activo == True %}
+                      <input type="text" class="form-control rounded-pill" name="placas" id="placas" onblur="upperCase()"
+                        disabled>
+                      {% endif %}  
+
                   </div>
                   <!--select multiple-->
-                  
+
                   <div class="form-group text-center">
                     <label>Estado operativo</label>
+                    {% if puestos.activo == False%}
                     <select name="EstadoOperativo" class="form-control rounded-pill">
                       {% for dato in Estado %}
                       <option value="{{dato.EstadoOperativo}}" class="form-control">{{dato.EstadoOperativo}}
                         {% endfor %}
                       </option>
+                    {% endif %}  
                     </select>
+                    
+                    {% if puestos.activo == True %}
+                    <select name="EstadoOperativo" class="form-control rounded-pill">
+                      {% for dato in Estado %}
+                      <option value="{{dato.EstadoOperativo}}" class="form-control" disabled>{{dato.EstadoOperativo}}
+                        {% endfor %}
+                      </option>
+                      {% endif %}
+                    </select>
+
                   </div>
 
                   <!--/select multiple-->
@@ -108,7 +130,6 @@
 
           <div class="widget-user-image mb-4">
             <br>
-          
             {% if puestos.activo == False %}
             <button type="summit" class="btn btn-app bg-success rounded-pill">
               <i class="fas fa-clock"></i> Registrar
@@ -116,14 +137,12 @@
             {% endif %}
 
             {%if puestos.activo == True %}
-            <a class="btn btn-app bg-danger" href="/ASISTENCIA-FINALIZADA">
-              <i class="fas fa-clock"></i> Finalizar 
+            <a class="btn btn-app bg-danger rounded-pill" href="/ASISTENCIA-FINALIZADA">
+              <i class="fas fa-clock"></i> Finalizar
             </a>
             {% endif %}
-          
           </div>
           <div class="card-footer">
-
           </div>
         </div>
       </form>
@@ -195,8 +214,8 @@
 
   <script type="text/javascript">
     function upperCase() {
-      var x=document.getElementById("placas").value 
-      document.getElementById("placas").value=x.toUpperCase();
+      var x = document.getElementById("placas").value
+      document.getElementById("placas").value = x.toUpperCase();
     }
   </script>
 

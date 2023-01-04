@@ -55,3 +55,6 @@ existe asistencia de un operador, no permitir que la registre de nuevo)
 07/11/2022 - 4:16: La actualizacion de contraseñas para admin ya funciona en su totalidad e incluso las hace con hash
 07/11/2022 - 5:48: Dejo pendiente la vista de admin para agregar nuevos admins, ademas de actualizar sus datos (Antes de temporada alta)
 18/11/2022 - 5:52: Se le han varios cambios al sistema (estan en To do:) queda pediente resolver el error de registrar asitencia
+02/01/2023 - 5:32: He implementado varias mejoras (To do) no logre hacer que funcione el modal de EasterEgg de la vista secreta de administrador
+(No se activa el modal)
+03/01/2023 - 5:56: He implementado graficas al HomePage, aun falta hacer que sean 100% dinamicas por medio de Json 
