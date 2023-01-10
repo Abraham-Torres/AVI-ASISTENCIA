@@ -16,10 +16,10 @@ def HomeSuper():
     elif 'usuario-empleado' in session:
         return redirect('/INICIAR-SESION-EMPLEADO')
 
-def FormularioAdmin():
-    if 'usuario-adminitrador' in session:    
+def FormularioNuevoAdmin():
+    if 'usuario-administrador' in session:    
         titulo = "Agregar nuevo administrador"
-        return render_template('/SUPERADMIN/super_su/registrar.html', titulo = titulo)
+        return render_template('/SUPERADMIN/super_su/registrar.html', titulo=titulo)
     elif 'usuario-empleado' in session:
         return redirect('/INICIAR-SESION-EMPLEADO')
 

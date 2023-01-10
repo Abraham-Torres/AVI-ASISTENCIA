@@ -15,5 +15,13 @@ def Home():
     elif 'usuario-empleado' in session:
         return redirect('/INICIAR-SESION-EMPLEADO')
     
-
+def Charts():
+    auxiliares = DB['auxiliar']
+    operadores = DB['puestos']
+    operadoresTot= operadores.count_documents({'activo':True})
+    auxiliaresTot = auxiliares.count_documents({})
+    aux={}
+    aux['auxiliares']=auxiliaresTot
+    operador={}
+    return aux
     
